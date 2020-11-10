@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --mail-type=ALL
+#SBATCH --job-name=tdp_resp
+#SBATCH -p hns,iric,owners
+#SBATCH -c 8
+#SBATCH --time=10:00:00
+
+ml load chemistry gaussian
+
+g16 tdp_opt
+g16 tdp_preopt.g > tdp_opt_final.log
